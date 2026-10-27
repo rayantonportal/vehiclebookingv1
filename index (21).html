@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="tl" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="google" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vehicle Booking – NCQ 6924 & PIU 807</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f4f1ea;--card:#fffdf8;--tx:#1a2233;--mut:#6c7384;--bd:#e6e0d2;--br:#14213d;--brt:#fffdf8;--gold:#b8913a;--a:#1d4ed8;--b:#c2410c;--ok:#15803d;--no:#b91c1c;--pen:#a16207;
+--sh:0 1px 2px rgba(20,33,61,.05),0 8px 24px -12px rgba(20,33,61,.18);--ring:0 0 0 3px rgba(184,145,58,.28)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b101b;--card:#131a2a;--tx:#ece8df;--mut:#8f98ab;--bd:#232c42;--br:#d4b05a;--brt:#14213d;--gold:#d4b05a;--a:#6b9bff;--b:#fb923c;--ok:#4ade80;--no:#f87171;--pen:#facc15;--sh:0 1px 2px rgba(0,0,0,.3),0 12px 28px -14px rgba(0,0,0,.6);--ring:0 0 0 3px rgba(212,176,90,.3)}}
+:root[data-theme="dark"]{--bg:#0b101b;--card:#131a2a;--tx:#ece8df;--mut:#8f98ab;--bd:#232c42;--br:#d4b05a;--brt:#14213d;--gold:#d4b05a;--a:#6b9bff;--b:#fb923c;--ok:#4ade80;--no:#f87171;--pen:#facc15;--sh:0 1px 2px rgba(0,0,0,.3),0 12px 28px -14px rgba(0,0,0,.6);--ring:0 0 0 3px rgba(212,176,90,.3)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 "DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:1040px;margin:0 auto;padding:0 18px 28px}
+h1,h2,.bt{font-family:Fraunces,Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.01em}
+h1{font-size:26px;margin:0 0 2px}.sub{color:var(--mut);margin:0 0 14px;font-size:14px}
+h2{font-size:19px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:var(--sh)}
+.card>h2:first-child{display:flex;align-items:center;gap:8px;margin:0 0 12px!important}
+.card>h2:first-child:before{content:"";width:4px;height:18px;border-radius:2px;background:var(--gold)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.hd{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 -18px 18px;padding:12px 18px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--br);color:var(--brt);box-shadow:var(--sh)}
+.bt{font-size:18px;line-height:1.15}.bs{font-size:12px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+.hr{display:flex;align-items:center;gap:10px}
+.pill{font-size:12.5px;padding:5px 12px;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--mut)}
+.pill:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:7px}
+.nav button,.btn{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:8px 14px;font:inherit;font-weight:500;cursor:pointer;transition:transform .12s,box-shadow .15s,border-color .15s,background .15s}
+.nav button:hover,.btn:hover{border-color:var(--gold);box-shadow:var(--sh)}.btn:active{transform:translateY(1px)}
+.btn:focus-visible,.nav button:focus-visible{outline:none;box-shadow:var(--ring)}
+.btn:disabled{opacity:.6;cursor:default}
+.btn.p{background:var(--br);color:var(--brt);border-color:var(--br)}.btn.p:hover{filter:brightness(1.08)}
+.btn.ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 45%,var(--bd))}.btn.no{color:var(--no);border-color:color-mix(in srgb,var(--no) 45%,var(--bd))}
+.nav b{font-family:Fraunces,Georgia,serif;font-size:18px;font-weight:600}
+.leg{display:flex;gap:14px;font-size:13px;color:var(--mut);flex-wrap:wrap}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.dh{font-size:11.5px;color:var(--mut);text-align:center;padding:4px 2px;text-transform:uppercase;letter-spacing:.08em}
+.d{min-height:100px;border:1px solid var(--bd);border-radius:12px;padding:6px;background:var(--bg)}
+.d.o{opacity:.38}.d.t{border-color:var(--gold);box-shadow:inset 0 0 0 1px var(--gold);background:color-mix(in srgb,var(--gold) 8%,var(--bg))}
+.d>b{font-size:12.5px;color:var(--mut);font-weight:600}.d.t>b{color:var(--gold)}
+.ev{--c:var(--a);font-size:11.5px;line-height:1.35;border-radius:8px;border-left:4px solid var(--c);padding:5px 7px;margin-top:5px;color:var(--tx);background:color-mix(in srgb,var(--c) 13%,var(--card));white-space:normal;overflow-wrap:anywhere}
+.ev.A{--c:var(--a)}.ev.B{--c:var(--b)}
+.ev.pending{background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--c) 16%,var(--card)) 0 6px,color-mix(in srgb,var(--c) 5%,var(--card)) 6px 12px);border-left-style:dashed}
+.ev strong{display:block;font-size:11.5px;color:var(--c);font-weight:600}.ev span{display:block;opacity:.92}
+.ev.x{--c:var(--mut);opacity:.7;text-decoration:line-through}
+.ev.ck{cursor:pointer}.ev.ck:hover{box-shadow:0 0 0 2px var(--gold)}
+.av{font-size:11px;color:var(--ok);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form label{display:flex;flex-direction:column;font-size:12.5px;font-weight:500;color:var(--mut);gap:5px}
+form .f{grid-column:1/-1}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;width:100%;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:var(--ring)}
+.cn{white-space:pre-line;font-size:13px;color:var(--pen);border-left:3px solid var(--pen);padding:4px 0 4px 12px;background:color-mix(in srgb,var(--pen) 7%,transparent);border-radius:0 8px 8px 0}.cn:empty{display:none}
+.err{white-space:pre-line;color:var(--no);font-size:13px;grid-column:1/-1;min-height:16px}
+.row{border-top:1px solid var(--bd);padding:14px 0;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.row:first-child{border-top:0}
+.tag{font-size:11.5px;font-weight:600;padding:2px 10px;border-radius:99px;border:1px solid currentColor;margin-left:4px}
+.tag.pending{color:var(--pen)}.tag.approved{color:var(--ok)}.tag.rejected{color:var(--no)}
+.sm{font-size:13px;color:var(--mut)}
+.scroll{overflow-x:auto}
+.note{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px;padding:10px 14px;border:1px solid var(--bd);border-left:4px solid var(--no);border-radius:12px;background:var(--bg)}
+.note .nt{font-weight:700;font-size:12px;color:var(--no);text-transform:uppercase;letter-spacing:.1em}
+.note .chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;padding:3px 11px;border-radius:99px;background:var(--card);border:1px solid var(--bd)}
+.note .chip i{width:9px;height:9px;border-radius:3px;display:inline-block}
+.tabb{border-radius:99px!important}.tabb.on{background:var(--br);color:var(--brt);border-color:var(--br)}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.ctl input,.ctl select{width:auto;flex:1 1 150px}
+.seg{display:flex;gap:4px;margin:0 0 18px;padding:4px;border-radius:12px;background:var(--bg);border:1px solid var(--bd)}
+.seg .btn{flex:1;border:0;background:transparent;box-shadow:none}.seg .btn.on{background:var(--br);color:var(--brt)}
+#sync{display:inline-flex;align-items:center;font-size:12.5px;margin:0 0 14px}
+dialog{border:1px solid var(--bd);border-radius:16px;background:var(--card);color:var(--tx);padding:20px;width:min(360px,92vw);box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}dialog::backdrop{background:rgba(8,12,22,.55);backdrop-filter:blur(3px)}dialog form{grid-template-columns:1fr}
+dialog#ed{width:min(580px,94vw);max-height:92vh;overflow:auto}
+dialog#ed form>b{font-family:Fraunces,Georgia,serif;font-size:19px}
+@media(min-width:561px){dialog#ed form{grid-template-columns:1fr 1fr}}
+/* login */
+#lp{min-height:100vh;display:grid;place-items:center;padding:24px 16px;position:relative;overflow:hidden;
+background:radial-gradient(900px 500px at 12% -10%,rgba(212,176,90,.22),transparent 60%),radial-gradient(800px 520px at 100% 110%,rgba(76,110,190,.28),transparent 60%),linear-gradient(160deg,#0e1830,#14213d 55%,#0b1226)}
+#lp:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%);-webkit-mask-image:radial-gradient(circle at 50% 40%,#000,transparent 75%)}
+.lbox{position:relative;width:min(410px,100%);margin:0;padding:30px 28px 24px;border-radius:22px;background:rgba(255,253,248,.96);color:#1a2233;border:1px solid rgba(255,255,255,.5);box-shadow:0 30px 80px -24px rgba(0,0,0,.6)}
+.lbox{--bg:#f4f1ea;--card:#fffdf8;--tx:#1a2233;--mut:#6c7384;--bd:#e6e0d2;--br:#14213d;--brt:#fffdf8;--gold:#b8913a;--ring:0 0 0 3px rgba(184,145,58,.28)}
+.lbox .logo{width:54px;height:54px;border-radius:16px;margin:0 auto 14px}
+.lbox h1{text-align:center;font-size:26px;margin:0 0 4px}.lbox .sub{text-align:center;margin:0 0 20px}
+.lbox .gold{height:2px;width:46px;background:var(--gold);border-radius:2px;margin:0 auto 14px}
+.lbox form{grid-template-columns:1fr}.lbox .btn.p{padding:12px 14px;font-size:15px}
+.lfoot{position:relative;margin-top:18px;font-size:12px;color:rgba(255,255,255,.55);text-align:center}
+@media(max-width:560px){form{grid-template-columns:1fr}.d{min-height:56px}.ev,.ev strong{font-size:10.5px}.hd{margin:0 -18px 14px}.bs{display:none}}
+</style>
+</head>
+<body>
+<div class="w" id="main" style="display:none">
+  <header class="hd" id="bar"><div class="brand"><span class="logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14.5l1.4-4.3A2 2 0 0 1 7.3 8.8h9.4a2 2 0 0 1 1.9 1.4L20 14.5"/><path d="M3.5 14.5h17V18a1 1 0 0 1-1 1H19a1 1 0 0 1-1-1v-.5H6V18a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1z"/><circle cx="7.6" cy="16.2" r=".6" fill="currentColor"/><circle cx="16.4" cy="16.2" r=".6" fill="currentColor"/></svg></span><div><div class="bt">Booking ng Sasakyan</div><div class="bs">NCQ 6924 · PIU 807</div></div></div><div class="hr"><span class="pill" id="who"></span><button class="btn" id="exit" type="button"></button></div></header>
+  <p class="sub">Mag-request, tingnan sa calendar, at hintayin ang approval ng admin.</p>
+  <p class="sm" id="sync">Kumokonekta…</p>
+
+  <div class="card">
+    <div class="top">
+      <div class="nav"><button id="prev">◀</button> <b id="mt" style="margin:0 8px"></b> <button id="next">▶</button></div>
+      <div class="leg"><span><i class="dot" style="background:var(--a)"></i>NCQ 6924</span><span><i class="dot" style="background:var(--b)"></i>PIU 807</span><span>Striped = Pending</span><span>Gray = Cancelled</span><span style="color:var(--ok)">Green = Available</span></div>
+    </div>
+    <div class="note"><span class="nt">Note: Coding Day</span><span class="chip"><i style="background:var(--a)"></i><b>NCQ 6924</b> – Tuesday</span><span class="chip"><i style="background:var(--b)"></i><b>PIU 807</b> – Thursday</span></div>
+    <div id="hint" class="sm" style="display:none;margin-bottom:8px">Admin: i-click ang isang schedule sa calendar para i-edit.</div>
+    <div class="scroll"><div class="cal" id="cal" style="min-width:900px"></div></div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin:0 0 12px">Request Form</h2>
+    <form id="fm">
+      <label>Vehicle<select id="veh"><option>NCQ 6924</option><option>PIU 807</option></select></label>
+      <label>Requested by (full name)<input id="by" required placeholder="First name and last name"></label>
+      <label>Date from<input id="d1" type="date" required></label>
+      <label>Date to<input id="d2" type="date" required></label>
+      <label class="f">Schedule ng sasakyan<select id="sch"><option value="day">Buong araw</option><option value="time">May oras (estimate)</option></select></label>
+      <label id="lt1" style="display:none">Departure time (estimate)<input id="t1" type="time"></label>
+      <label id="lt2" style="display:none">Return time (estimate)<input id="t2" type="time"></label>
+      <div class="f cn" id="cn"></div>
+      <label>Destination<input id="dest" required></label>
+      <label>Driver<input id="drv" required></label>
+      <label class="f">Purpose<textarea id="pur" rows="2" required></textarea></label>
+      <div class="err" id="err"></div>
+      <div class="f"><button class="btn p" id="sub" type="submit">Submit Request</button></div>
+    </form>
+  </div>
+
+  <div class="card" id="lc" style="display:none">
+    <h2 style="margin:0 0 12px">Admin <span class="sm" id="role" style="font-family:DM Sans,system-ui,sans-serif;font-weight:400"></span></h2>
+    <div><button class="btn tabb on" data-tab="req" type="button">Requests <span id="pc"></span></button> <button class="btn tabb" data-tab="his" type="button">History</button> <button class="btn tabb" data-tab="bk" type="button">Backup</button></div>
+    <div class="ctl" id="hc" style="display:none">
+      <input id="hq" type="search" placeholder="Search name, destination, driver, vehicle…">
+      <select id="hs"><option value="all">All status</option><option value="approved">Approved</option><option value="rejected">Cancelled</option></select>
+      <select id="hso"><option value="dnew">Travel date: newest first</option><option value="dold">Travel date: oldest first</option><option value="rnew">Date requested: newest first</option><option value="naz">Requested by: A → Z</option><option value="nza">Requested by: Z → A</option><option value="deaz">Destination: A → Z</option><option value="drz">Driver: A → Z</option><option value="vaz">Vehicle: A → Z</option></select>
+    </div>
+    <div id="bk" style="display:none;margin-top:12px">
+      <p class="sm" style="margin:0 0 10px">Mag-download ng kopya ng lahat ng booking (kasama ang cancelled). Pwede itong i-restore kapag may nawala o nabura.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn p" id="bj" type="button">Download Backup (JSON)</button><button class="btn" id="bc" type="button">Download CSV (Excel)</button></div>
+      <hr style="border:0;border-top:1px solid var(--bd);margin:14px 0">
+      <b style="font-size:14px">Restore mula sa backup</b>
+      <p class="sm" style="margin:4px 0 8px">Piliin ang JSON backup file. Idadagdag ang mga wala pa at ia-update ang may parehong ID. Walang buburahin.</p>
+      <input type="file" id="rf" accept=".json,application/json">
+      <div id="rmsg" class="sm" style="margin-top:8px;white-space:pre-line"></div>
+    </div>
+    <div id="list" class="sm" style="margin-top:8px">Loading…</div>
+  </div>
+</div>
+
+<div id="lp"><div class="card lbox">
+  <span class="logo"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14.5l1.4-4.3A2 2 0 0 1 7.3 8.8h9.4a2 2 0 0 1 1.9 1.4L20 14.5"/><path d="M3.5 14.5h17V18a1 1 0 0 1-1 1H19a1 1 0 0 1-1-1v-.5H6V18a1 1 0 0 1-1 1h-.5a1 1 0 0 1-1-1z"/><circle cx="7.6" cy="16.2" r=".6" fill="currentColor"/><circle cx="16.4" cy="16.2" r=".6" fill="currentColor"/></svg></span>
+  <h1>Vehicle Booking</h1>
+  <div class="gold"></div>
+  <p class="sub">NCQ 6924 · PIU 807<br>Piliin kung paano papasok.</p>
+  <div class="seg"><button type="button" class="btn on" data-lt="guest">Guest</button><button type="button" class="btn" data-lt="admin">Admin</button></div>
+  <div id="pg">
+    <p class="sm" style="margin:0 0 14px;text-align:center">Para sa mga mag-request ng sasakyan. Makikita mo ang calendar at makakapag-submit ng request. Walang password na kailangan.</p>
+    <button class="btn p" id="gbtn" type="button" style="width:100%">Pumasok bilang Guest</button>
+  </div>
+  <form id="lform" style="display:none">
+    <label>Email<input id="lem" type="email" required autocomplete="username"></label>
+    <label>Password<input id="lpw" type="password" required autocomplete="current-password"></label>
+    <div class="err" id="lerr"></div>
+    <button class="btn p" id="lbtn" type="submit">Mag-login bilang Admin</button>
+  </form>
+</div><div class="lfoot" style="position:absolute;bottom:18px;left:0;right:0">Vehicle Booking System</div></div>
+
+<dialog id="ed"><form id="eform">
+<b class="f">Edit booking (Admin)</b>
+<input type="hidden" id="eid">
+<label>Vehicle<select id="eveh"><option>NCQ 6924</option><option>PIU 807</option></select></label>
+<label>Status<select id="est"><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Cancelled</option></select></label>
+<label class="f">Requested by (full name)<input id="eby" required></label>
+<label>Date from<input id="ed1" type="date" required></label>
+<label>Date to<input id="ed2" type="date" required></label>
+<label class="f">Schedule ng sasakyan<select id="esch"><option value="day">Buong araw</option><option value="time">May oras (estimate)</option></select></label>
+<label id="elt1" style="display:none">Departure time (estimate)<input id="et1" type="time"></label>
+<label id="elt2" style="display:none">Return time (estimate)<input id="et2" type="time"></label>
+<label>Destination<input id="edest" required></label>
+<label>Driver<input id="edrv" required></label>
+<label class="f">Purpose<textarea id="epur" rows="2" required></textarea></label>
+<div class="err" id="eerr"></div>
+<div class="f" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn p" id="esave" type="submit">Save changes</button><button class="btn" type="button" id="ecancel">Close</button></div>
+</form></dialog>
+<script>
+var db=null,isAdmin=false,reqs=[],cur=new Date();cur.setDate(1);
+var $=function(i){return document.getElementById(i)};
+function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML}
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function cls(v){return v==='NCQ 6924'?'A':'B'}
+var MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function evHtml(r,v,label,extra){
+  var sh=v.slice(0,3)+' '+v.slice(4);
+  return '<div class="'+extra+'" data-id="'+esc(r.id)+'" title="'+esc(v+' · '+label+' · '+r.dest+' · '+r.drv+' · '+r.pur+' · '+r.by)+'">'+
+    '<strong>'+esc(v)+' · '+label+'</strong>'+
+    '<span>Destination: '+esc(r.dest)+'</span>'+
+    '<span>Driver: '+esc(r.drv)+'</span>'+
+    (r.pur?'<span>Purpose: '+esc(r.pur)+'</span>':'')+
+    '<span>Requested by: '+esc(r.by)+'</span>'+
+    '<span>Oras: '+(r.t1?esc(r.t1)+(r.t2?'–'+esc(r.t2):''):'Buong araw')+'</span>'+
+    '</div>';
+}
+function drawCal(){
+  var y=cur.getFullYear(),m=cur.getMonth();$('mt').textContent=MN[m]+' '+y;
+  var h='';['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(function(x){h+='<div class="dh">'+x+'</div>'});
+  var start=new Date(y,m,1-new Date(y,m,1).getDay()),today=iso(new Date());
+  var ck=isAdmin?' ck':'';
+  for(var i=0;i<42;i++){
+    var d=new Date(start);d.setDate(start.getDate()+i);var k=iso(d);
+    h+='<div class="d'+(d.getMonth()!==m?' o':'')+(k===today?' t':'')+'"><b>'+d.getDate()+'</b>';
+    ['NCQ 6924','PIU 807'].forEach(function(v){
+      var sh=v.slice(0,3),on=function(r){return r.veh===v&&r.d1<=k&&k<=r.d2};
+      var act=reqs.filter(function(r){return on(r)&&r.status!=='rejected'&&(isAdmin||r.status==='approved')});
+      act.forEach(function(r){
+        h+=evHtml(r,v,r.status==='pending'?'Pending':'Booked','ev '+cls(v)+' '+r.status+ck);
+      });
+      reqs.filter(function(r){return on(r)&&r.status==='rejected'}).forEach(function(r){
+        h+=evHtml(r,v,'Cancelled','ev x'+ck);
+      });
+      if(!act.length&&k>=today)h+='<div class="av">'+sh+' · Available</div>';
+    });
+    h+='</div>';
+  }
+  $('cal').innerHTML=h;
+}
+var tab='req';
+function cmp(f,dir){return function(a,b){var x=String(f(a)||'').toLowerCase(),y=String(f(b)||'').toLowerCase();return dir*x.localeCompare(y)}}
+function drawList(){
+  $('role').textContent=isAdmin?'(Admin view)':'';$('lc').style.display=isAdmin?'':'none';$('hint').style.display=isAdmin?'':'none';
+  if(!isAdmin)return;
+  var pend=reqs.filter(function(r){return r.status==='pending'});
+  $('pc').textContent=pend.length?'('+pend.length+')':'';
+  Array.prototype.forEach.call(document.querySelectorAll('.tabb'),function(b){b.classList.toggle('on',b.dataset.tab===tab)});
+  $('hc').style.display=tab==='his'?'':'none';$('bk').style.display=tab==='bk'?'':'none';$('list').style.display=tab==='bk'?'none':'';
+  if(tab==='bk')return;
+  var s;
+  if(tab==='req'){s=pend.slice().sort(function(a,b){return b.created-a.created})}
+  else{
+    var q=$('hq').value.trim().toLowerCase(),st=$('hs').value,so=$('hso').value;
+    s=reqs.filter(function(r){return r.status!=='pending'&&(st==='all'||r.status===st)&&(!q||[r.veh,r.by,r.dest,r.drv,r.pur].join(' ').toLowerCase().indexOf(q)>-1)});
+    var sorts={dnew:function(a,b){return a.d1<b.d1?1:a.d1>b.d1?-1:0},dold:function(a,b){return a.d1<b.d1?-1:a.d1>b.d1?1:0},
+      rnew:function(a,b){return b.created-a.created},
+      naz:cmp(function(r){return r.by},1),nza:cmp(function(r){return r.by},-1),
+      deaz:cmp(function(r){return r.dest},1),drz:cmp(function(r){return r.drv},1),vaz:cmp(function(r){return r.veh},1)};
+    s.sort(sorts[so]||sorts.dnew);
+  }
+  if(!s.length){$('list').textContent=tab==='req'?'Walang pending na request.':'Walang history na nahanap.';return}
+  var h='';
+  s.forEach(function(r){
+    var lab={pending:'Pending',approved:'Approved',rejected:'Cancelled'}[r.status];
+    h+='<div class="row"><div style="color:var(--tx)"><b>'+esc(r.veh)+'</b> <span class="tag '+r.status+'">'+lab+'</span><br>'+
+    esc(r.d1)+(r.d2!==r.d1?' → '+esc(r.d2):'')+' · '+(r.t1?esc(r.t1)+(r.t2?'–'+esc(r.t2):''):'Buong araw')+'<br>'+
+    '<span class="sm">Destination: '+esc(r.dest)+' · Driver: '+esc(r.drv)+' · Booked by: '+esc(r.by)+'<br>Purpose: '+esc(r.pur||'—')+'<br>Requested on: '+fmtDT(r.created)+'</span></div>';
+    h+='<div>';
+    h+='<button class="btn" data-a="edit" data-id="'+esc(r.id)+'">Edit</button> ';
+    if(r.status!=='approved')h+='<button class="btn ok" data-a="approved" data-id="'+esc(r.id)+'">Approve</button> ';
+    if(r.status!=='rejected')h+='<button class="btn no" data-a="rejected" data-id="'+esc(r.id)+'">Cancel / Reject</button> ';
+    h+='<button class="btn" data-a="del" data-id="'+esc(r.id)+'">Delete</button></div>';
+    h+='</div>';
+  });
+  $('list').innerHTML=h;
+}
+function download(name,text,type){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type:type}));a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)}
+function rawRows(){return reqs.slice().sort(function(a,b){return a.created-b.created}).map(function(r){return {id:r.id,veh:r.veh,by_name:r.by,d1:r.d1,d2:r.d2,t1:r.t1||'',t2:r.t2||'',dest:r.dest,drv:r.drv,pur:r.pur,status:r.status,created_at:r.created?new Date(r.created).toISOString():''}})}
+$('bj').onclick=function(){
+  if(!reqs.length){$('rmsg').textContent='Walang laman na ma-backup.';return}
+  var rows=rawRows();
+  download('vehicle-booking-backup-'+iso(new Date())+'.json',JSON.stringify({app:'vehicle-booking',version:1,exported_at:new Date().toISOString(),count:rows.length,requests:rows},null,2),'application/json');
+  $('rmsg').textContent='Na-download ang backup ('+rows.length+' booking).';
+};
+$('bc').onclick=function(){
+  if(!reqs.length){$('rmsg').textContent='Walang laman na ma-export.';return}
+  var cols=['veh','status','d1','d2','t1','t2','dest','drv','by_name','pur','created_at'];
+  var head=['Vehicle','Status','Date from','Date to','Departure','Return','Destination','Driver','Requested by','Purpose','Requested on'];
+  function cell(v){v=String(v==null?'':v);if(/^[=+\-@]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'}
+  var out=[head.map(cell).join(',')];
+  rawRows().forEach(function(r){out.push(cols.map(function(c){return cell(r[c])}).join(','))});
+  download('vehicle-booking-'+iso(new Date())+'.csv','\ufeff'+out.join('\r\n'),'text/csv;charset=utf-8');
+  $('rmsg').textContent='Na-download ang CSV ('+reqs.length+' booking).';
+};
+$('rf').onchange=function(){
+  var f=this.files[0],inp=this;if(!f)return;
+  var fr=new FileReader();
+  fr.onload=function(){
+    var j;try{j=JSON.parse(fr.result)}catch(e){$('rmsg').textContent='Hindi valid na backup file.';inp.value='';return}
+    var arr=Array.isArray(j)?j:(j&&j.requests);
+    if(!Array.isArray(arr)){$('rmsg').textContent='Hindi ito backup file ng booking system na ito.';inp.value='';return}
+    var D=/^\d{4}-\d{2}-\d{2}$/,U=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    var rows=[];arr.forEach(function(r){
+      if(!r||!U.test(String(r.id||''))||['NCQ 6924','PIU 807'].indexOf(r.veh)<0||!D.test(r.d1||'')||!D.test(r.d2||'')||r.d2<r.d1)return;
+      if(['pending','approved','rejected'].indexOf(r.status)<0||!r.dest||!r.drv||!r.by_name)return;
+      var o={id:r.id,veh:r.veh,by_name:String(r.by_name),d1:r.d1,d2:r.d2,t1:r.t1||null,t2:r.t2||null,dest:String(r.dest),drv:String(r.drv),pur:String(r.pur||''),status:r.status};
+      if(r.created_at&&!isNaN(Date.parse(r.created_at)))o.created_at=r.created_at;
+      rows.push(o)});
+    var skipped=arr.length-rows.length;
+    if(!rows.length){$('rmsg').textContent='Walang valid na booking sa file na ito.';inp.value='';return}
+    if(!confirm('I-restore ang '+rows.length+' booking mula sa backup?'+(skipped?'\n('+skipped+' ang laktawan dahil hindi valid.)':'')+'\n\nIdadagdag ang mga wala pa at ia-update ang may parehong ID. Walang buburahin.'))return;
+    $('rmsg').textContent='Nire-restore… 0/'+rows.length;
+    db.restore(rows,function(i,n){$('rmsg').textContent='Nire-restore… '+i+'/'+n}).then(function(res){
+      $('rmsg').textContent='Tapos na ang restore.\nNa-restore: '+res.ok+(res.bad?'\nHindi na-restore: '+res.bad+' ('+res.err+')':'')+(skipped?'\nNilaktawan: '+skipped:'');
+      inp.value=''});
+  };
+  fr.readAsText(f);
+};
+$('lc').addEventListener('click',function(e){var b=e.target.closest('.tabb');if(!b)return;tab=b.dataset.tab;drawList()});
+['hq','hs','hso'].forEach(function(i){$(i).addEventListener('input',drawList)});
+function fmtDT(t){if(!t)return '—';try{return new Date(t).toLocaleString('en-PH',{dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Manila'})}catch(e){return new Date(t).toLocaleString()}}
+function applySch(sel,l1,l2,i1,i2){
+  var t=$(sel).value==='time';
+  $(l1).style.display=$(l2).style.display=t?'':'none';
+  $(i1).required=$(i2).required=t;
+  if(!t){$(i1).value='';$(i2).value=''}
+}
+function updateNotice(){
+  var v=$('veh').value,a=$('d1').value,b=$('d2').value,box=$('cn');
+  var c=(a&&b&&b>=a)?reqs.filter(function(x){return x.veh===v&&x.status!=='rejected'&&x.d1<=b&&a<=x.d2}):[];
+  box.textContent=c.length?'May nakabook na ang '+v+' sa petsang ito:\n'+c.map(fmtB).join('\n')+'\n\nPwede pa ring magkasabay sa iisang araw: piliin ang "May oras (estimate)" at ilagay ang Departure at Return time na hindi magtatagpo sa nakabook na.':'';
+}
+function draw(){drawCal();drawList();updateNotice()}
+$('sch').addEventListener('change',function(){applySch('sch','lt1','lt2','t1','t2')});
+$('esch').addEventListener('change',function(){applySch('esch','elt1','elt2','et1','et2')});
+['veh','d1','d2'].forEach(function(i){$(i).addEventListener('change',updateNotice)});
+function todayStr(){var t=new Date();return t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0')}
+function setMinDate(){var m=todayStr();$('d1').min=m;$('d2').min=m}
+setMinDate();
+
+$('prev').onclick=function(){cur.setMonth(cur.getMonth()-1);drawCal()};
+$('next').onclick=function(){cur.setMonth(cur.getMonth()+1);drawCal()};
+
+function fmtB(x){return '• '+x.d1+(x.d2!==x.d1?' → '+x.d2:'')+(x.t1?' · '+x.t1+(x.t2?'–'+x.t2:''):' · buong araw')+' ('+(x.status==='pending'?'Pending':'Approved')+')'}
+function checkClash(r,selfId){
+  var c=reqs.filter(function(x){return x.id!==selfId&&x.veh===r.veh&&x.status!=='rejected'&&x.d1<=r.d2&&r.d1<=x.d2});
+  if(!c.length)return null;
+  var head='May nakabook na ang '+r.veh+' sa petsang ito:\n'+c.map(fmtB).join('\n')+'\n\n';
+  if(!r.t1||!r.t2)return {block:head+'Hindi pwedeng "Buong araw" dahil may nakabook na. Piliin ang "May oras (estimate)" at ilagay ang Departure at Return time.'};
+  if(r.t2<=r.t1)return {block:'Dapat mas huli ang Return time kaysa Departure time.'};
+  for(var i=0;i<c.length;i++){var x=c[i];
+    if(!x.t1||!x.t2||x.d1!==x.d2||r.d1!==r.d2)return {block:head+'Hindi pwedeng magkasabay: buong araw o ilang araw ang existing booking. Pumili ng ibang petsa o sasakyan.'};
+    if(r.t1<x.t2&&x.t1<r.t2)return {block:head+'Nagtatagpo ang oras ng schedule mo at ng existing booking. Pumili ng ibang oras, petsa o sasakyan.'}}
+  return {warn:head+'Magkaiba ang oras kaya pwede pa. Ituloy ang submit?'};
+}
+function openEdit(id){
+  if(!isAdmin)return;
+  var r=reqs.filter(function(x){return x.id===id})[0];if(!r)return;
+  $('eid').value=r.id;$('eveh').value=r.veh;$('est').value=r.status;$('eby').value=r.by;
+  $('ed1').value=r.d1;$('ed2').value=r.d2;$('esch').value=r.t1?'time':'day';applySch('esch','elt1','elt2','et1','et2');$('et1').value=r.t1||'';$('et2').value=r.t2||'';
+  $('edest').value=r.dest;$('edrv').value=r.drv;$('epur').value=r.pur;
+  $('eerr').textContent='';$('ed').showModal();
+}
+$('ecancel').onclick=function(){$('ed').close()};
+$('cal').onclick=function(e){
+  var t=e.target.closest('.ev');if(!t||!t.dataset.id||!isAdmin)return;openEdit(t.dataset.id);
+};
+$('eform').onsubmit=function(e){
+  e.preventDefault();$('eerr').textContent='';$('eerr').style.color='';
+  if(!isAdmin||!db)return;
+  var id=$('eid').value;
+  var r={veh:$('eveh').value,status:$('est').value,by:$('eby').value.trim(),d1:$('ed1').value,d2:$('ed2').value,
+    t1:$('et1').value,t2:$('et2').value,dest:$('edest').value.trim(),drv:$('edrv').value.trim(),pur:$('epur').value.trim()};
+  if(r.by.split(/\s+/).length<2){$('eerr').textContent='Please enter the full name (first and last name).';return}
+  if(r.d2<r.d1){$('eerr').textContent='"Date to" cannot be earlier than "Date from".';return}
+  if(r.status!=='rejected'){
+    var ck=checkClash(r,id);
+    if(ck&&ck.block){$('eerr').textContent=ck.block;return}
+    if(ck&&ck.warn&&!confirm(ck.warn))return;
+  }
+  var orig=reqs.filter(function(x){return x.id===id})[0]||{};
+  if(r.status==='rejected'&&orig.status!=='rejected'&&!confirm('TALAGA bang icacancel ang booking na ito? Mananatili ito sa calendar bilang Cancelled.'))return;
+  $('esave').disabled=true;
+  db.collection('requests').doc(id).update(r).then(function(){$('ed').close()})
+  .catch(function(er){$('eerr').textContent=(er&&er.code==='23P01')?r.veh+' is already booked on those dates.':'Hindi na-save. Admin lang ang pwedeng mag-edit; baka nag-expire ang login.'})
+  .then(function(){$('esave').disabled=false});
+};
+
+$('list').onclick=function(e){
+  var b=e.target.closest('button');if(!b||!db||!isAdmin)return;
+  if(b.dataset.a==='edit'){openEdit(b.dataset.id);return}
+  var rr=reqs.filter(function(x){return x.id===b.dataset.id})[0]||{};
+  var what=(rr.veh||'')+' · '+(rr.d1||'')+(rr.d2&&rr.d2!==rr.d1?' → '+rr.d2:'')+' · '+(rr.dest||'')+' ('+(rr.by||'')+')';
+  if(b.dataset.a==='del'&&!confirm('TALAGA bang idedelete ito?\n\n'+what+'\n\nPermanente itong mabubura at hindi na maibabalik. (Mas mainam ang "Cancel / Reject" kung gusto mong makita pa rin sa calendar.)'))return;
+  if(b.dataset.a==='rejected'&&!confirm('TALAGA bang icacancel ito?\n\n'+what+'\n\nMananatili ito sa calendar bilang Cancelled at mabubuksan ulit ang petsa.'))return;
+  var ref=db.collection('requests').doc(b.dataset.id);
+  (b.dataset.a==='del'?ref.delete():ref.update({status:b.dataset.a})).catch(function(){alert('Hindi nagawa. Admin lang ang pwedeng mag-approve.')});
+};
+
+$('fm').onsubmit=function(e){
+  e.preventDefault();$('err').textContent='';
+  if(!db){$('err').textContent='Database is unavailable.';return}
+  var r={veh:$('veh').value,by:$('by').value.trim(),d1:$('d1').value,d2:$('d2').value,t1:$('t1').value,t2:$('t2').value,
+    dest:$('dest').value.trim(),drv:$('drv').value.trim(),pur:$('pur').value.trim(),status:'pending',created:Date.now()};
+  if(r.by.split(/\s+/).length<2){$('err').textContent='Please enter your full name (first and last name).';return}
+  if(r.d1<todayStr()||r.d2<todayStr()){$('err').textContent='Past dates cannot be booked. Please choose today or a later date.';return}
+  if(r.d2<r.d1){$('err').textContent='"Date to" cannot be earlier than "Date from".';return}
+  var ck=checkClash(r,null);
+  if(ck&&ck.block){$('err').textContent=ck.block;return}
+  if(ck&&ck.warn&&!confirm(ck.warn))return;
+  $('sub').disabled=true;
+  db.collection('requests').add(r).then(function(){$('fm').reset();applySch('sch','lt1','lt2','t1','t2');updateNotice();$('err').style.color='var(--ok)';$('err').textContent='Submitted! Please wait for the admin’s approval.';
+    setTimeout(function(){$('err').textContent='';$('err').style.color=''},4000)})
+  .catch(function(e){$('err').textContent=(e&&e.code==='23P01')?r.veh+' ay hindi masubmit sa mga oras/petsang iyan: may nakabook na o hindi pa pinapayagan ng database ang magkasabay na booking sa iisang araw. Pumili ng ibang oras o petsa, o sabihan ang admin.':'Could not submit ('+((e&&e.message)||'unknown error')+'). Please try again.'})
+  .then(function(){$('sub').disabled=false});
+};
+
+var SB_URL='https://yrbvmqpgcqfziqjxkqcg.supabase.co',
+    SB_KEY='sb_publishable_QP4iaYjHW4OYaA5dNZc9nw_dhp0KEs5',
+    TBL=SB_URL+'/rest/v1/vehicle_requests',TOKEN=null;
+function hd(extra){var h={apikey:SB_KEY,Authorization:'Bearer '+(TOKEN||SB_KEY),'Content-Type':'application/json'};
+  for(var k in extra)h[k]=extra[k];return h}
+function fromRow(o){return {id:o.id,veh:o.veh,by:o.by_name,d1:o.d1,d2:o.d2,t1:(o.t1||'').slice(0,5),t2:(o.t2||'').slice(0,5),
+  dest:o.dest,drv:o.drv,pur:o.pur||'',status:o.status,created:Date.parse(o.created_at)||0}}
+function fail(r){return r.json().catch(function(){return {}}).then(function(j){var e=new Error(j.message||'fail');e.code=j.code;e.status=r.status;throw e})}
+function remoteDb(){
+  var subs=[];
+  function pull(){fetch(TBL+'?select=*&order=created_at.desc',{headers:hd()}).then(function(r){return r.ok?r.json():fail(r)}).then(function(rows){
+    var docs=rows.map(function(o){var x=fromRow(o);return {id:x.id,data:function(){return x}}});
+    subs.forEach(function(f){f({docs:docs})});sync(true)}).catch(function(){sync(false)})}
+  function sync(ok){var e=$('sync');if(!e)return;if(ok){e.style.color='var(--ok)';e.textContent='● Online · Huling sync: '+new Date().toLocaleTimeString('en-PH',{hour:'numeric',minute:'2-digit',second:'2-digit',timeZone:'Asia/Manila'})}else{e.style.color='var(--no)';e.textContent='● Offline — hindi makakonekta sa server. Susubukan ulit.'}}
+  function done(){pull()}
+  setInterval(function(){if(!document.hidden)pull()},5000);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)pull()});
+  window.addEventListener('online',pull);window.addEventListener('focus',pull);
+  function restore(rows,onp){var ok=0,bad=0,first='',i=0;
+    function next(){if(i>=rows.length)return Promise.resolve({ok:ok,bad:bad,err:first});
+      var r=rows[i++];onp&&onp(i,rows.length);
+      return fetch(TBL+'?on_conflict=id',{method:'POST',headers:hd({Prefer:'resolution=merge-duplicates,return=minimal'}),body:JSON.stringify(r)})
+        .then(function(x){return x.ok?(ok++):fail(x)}).catch(function(e){bad++;if(!first)first=(e&&e.message)||'error'}).then(next)}
+    return next().then(function(res){pull();return res})}
+  return {refresh:pull,restore:restore,collection:function(){return {
+    add:function(r){
+      var body={veh:r.veh,by_name:r.by,d1:r.d1,d2:r.d2,t1:r.t1||null,t2:r.t2||null,dest:r.dest,drv:r.drv,pur:r.pur,status:'pending'};
+      return fetch(TBL,{method:'POST',headers:hd({Prefer:'return=minimal'}),body:JSON.stringify(body)}).then(function(x){return x.ok?done():fail(x)})},
+    doc:function(id){var u=TBL+'?id=eq.'+encodeURIComponent(id);return {
+      update:function(p){
+        var body={status:p.status};
+        if(p.veh!==undefined){body={veh:p.veh,by_name:p.by,d1:p.d1,d2:p.d2,t1:p.t1||null,t2:p.t2||null,dest:p.dest,drv:p.drv,pur:p.pur,status:p.status}}
+        return fetch(u,{method:'PATCH',headers:hd({Prefer:'return=representation'}),body:JSON.stringify(body)})
+        .then(function(x){return x.ok?x.json():fail(x)}).then(function(a){if(!a.length)throw new Error('denied');done()})},
+      delete:function(){return fetch(u,{method:'DELETE',headers:hd({Prefer:'return=representation'})})
+        .then(function(x){return x.ok?x.json():fail(x)}).then(function(a){if(!a.length)throw new Error('denied');done()})}}},
+    onSnapshot:function(f){subs.push(f);pull()}}}};
+}
+draw();
+db=remoteDb();
+(function(){
+  var mode=null,email='';
+  try{if(sessionStorage.getItem('vb_mode')==='guest')mode='guest'}catch(e){}
+  function show(){
+    $('main').style.display=mode?'':'none';$('lp').style.display=mode?'none':'';
+    if(mode){$('who').textContent=mode==='admin'?'Naka-login bilang Admin'+(email?' ('+email+')':''):'Guest';
+      $('exit').textContent=mode==='admin'?'Logout':'Lumabas'}
+    draw();
+  }
+  function exit(){TOKEN=null;isAdmin=false;mode=null;try{sessionStorage.removeItem('vb_mode')}catch(e){}location.reload()}
+  $('exit').onclick=exit;
+  Array.prototype.forEach.call(document.querySelectorAll('.seg .btn'),function(b){b.onclick=function(){
+    Array.prototype.forEach.call(document.querySelectorAll('.seg .btn'),function(x){x.classList.toggle('on',x===b)});
+    var ad=b.dataset.lt==='admin';$('pg').style.display=ad?'none':'';$('lform').style.display=ad?'':'none';
+    if(ad)setTimeout(function(){$('lem').focus()},0)}});
+  $('gbtn').onclick=function(){mode='guest';try{sessionStorage.setItem('vb_mode','guest')}catch(e){}show()};
+  $('lform').onsubmit=function(e){e.preventDefault();$('lerr').textContent='';$('lbtn').disabled=true;
+    fetch(SB_URL+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:SB_KEY,'Content-Type':'application/json'},
+      body:JSON.stringify({email:$('lem').value.trim(),password:$('lpw').value})})
+    .then(function(r){return r.json().then(function(j){return {ok:r.ok,j:j}})})
+    .then(function(o){if(!o.ok||!o.j.access_token){$('lerr').textContent='Maling email o password.';return}
+      TOKEN=o.j.access_token;isAdmin=true;mode='admin';email=$('lem').value.trim();$('lpw').value='';db.refresh();show();
+      setTimeout(function(){TOKEN=null;isAdmin=false;alert('Nag-expire ang session. Mag-login ulit.');location.reload()},55*60*1000)})
+    .catch(function(){$('lerr').textContent='Hindi makakonekta sa server.'})
+    .then(function(){$('lbtn').disabled=false})};
+  show();
+  db.collection('requests').onSnapshot(function(s){
+    reqs=s.docs.map(function(d){var x=Object.assign({},d.data());x.id=d.id;return x});draw();
+  });
+})();
+</script>
+</body>
+</html>
